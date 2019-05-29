@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy Button Homework</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <!-- Title for the page -->
@@ -16,44 +16,52 @@
 <!-- Creating the <div> that holds the buttons -->
 
     <div id="buttons">
-        <button data-person="Michael Scott">
+        <button class="character" data-person="Michael Scott">
             Michael Scott
         </button>
-        <button data-person="Pam Beesly">
+        <button class="character" data-person="Pam Beesly">
             Pam Beesly
         </button>
-        <button data-person="Jim Halpert">
+        <button class="character" data-person="Jim Halpert">
             Jim Halpert
         </button>
-        <button data-person="Dwight Schrute">
+        <button class="character" data-person="Dwight Schrute">
             Dwight Schrute
         </button>
-        <button data-person="Angela Martin">
+        <button class="character" data-person="Angela Martin">
             Angela Martin
         </button>
-        <button data-person="Toby Flenderson">
+        <button class="character" -person="Toby Flenderson">
             Toby Flenderson
         </button>
-        <button data-person="Kelly Kapoor">
+        <button class="character" data-person="Kelly Kapoor">
             Kelly Kapoor
         </button>
-        <button data-person="Ryan Howard">
+        <button class="character" data-person="Ryan Howard">
             Ryan Howard
         </button>
-        <button data-person="Stanley Hudson">
+        <button class="character" data-person="Stanley Hudson">
             Stanley Hudson
         </button>
+    </div>
+    <div id="submitButton">
+        <button id="submit">
+                Submit
+            </button>
     </div>
 
 <!-- Creating the <div> to hold gif images -->
     <div id="gifs-here">
     </div>
+<!-- Creating the input field -->
+    <input id="input-value">
+    
 
 <!-- Creating click action on buttons and AJAX request -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
 
-    $("button").on("click", function() {
+    $(".character").on("click", function() {
     var person = $(this).attr("data-person"); // this is a reference to ANY button on the page 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=GiQqAxsCupPhVzHbrsvukO5U6TAAADdG";
     
@@ -73,17 +81,25 @@
         var gifP = $("<p>").text("Rating: " + rating); // creates a p tag that allows the rating to be displayed on the page
 
         var personImage = $("<img>"); // creates a img tag to hold the img pulled from response
-        personImage.attr("src", topics[i].images.fixed_height); // creates attribute to pull image from response
+        personImage.attr("src", topics[i].images.fixed_height.url); // creates attribute to pull image from response
 
         gifDiv.prepend(gifP); // adds the p tag text to the main gifDiv
         gifDiv.prepend(personImage); // adds the img to the main gifDiv
 
         $("#gifs-here").prepend(gifDiv); // adds the gifDiv to the main Div that holds the ajax request
         }
-
+    
     });
-
     });
+        // Create an on click event for the "submit" button
+        $("#submit").on("click", function() {
+        var input = $("#input-value").val();
+        console.log(input);
+        // once the value is inputted the button must be created 
+        // once the button created is clicked = response 
+        });
+
+
 
     </script>
     
