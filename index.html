@@ -47,6 +47,45 @@
     </div>
 
 <!-- Creating the <div> to hold gif images -->
+    <div id="gifs-appear-here">
+    </div>
+
+<!-- Creating click action on buttons and AJAX request -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    var person = $(this).attr("data-person"); // this is a reference to ANY button on the page 
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=GiQqAxsCupPhVzHbrsvukO5U6TAAADdG";
+    
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+
+    .then(function(response) {
+        console.log(response);
+        var topics = response.data;
+
+        for (var i = 0; i < topics.length; i++) {
+        
+        var gifDiv = $("<div>"); // creates a div to hold the "topic" info when run through the loop
+        var rating = topics[i].rating; // rating is pulled from the response
+        var gifP = $("<p>").text("Rating: " + rating); // creates a p tag that allows the rating to be displayed on the page
+
+        var personImage = $("<img>");
+        personImage.attr("src", topics[i].)
+        }
+
+    })
+
+
+
+
+
+
+
+
+    </script>
     
 </body>
 </html>
