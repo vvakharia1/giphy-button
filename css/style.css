@@ -7,7 +7,7 @@ h1 {
     text-decoration-color: white;
 }
 
-#buttons {
+button {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: darkgreen;
     margin: 5px;
@@ -20,3 +20,9 @@ body {
     background-color: dimgray;
 }
 
+#gifs-here {
+    margin: 5px;
+    padding: 5px;
+    border: 2px;
+    border-color: black;
+}

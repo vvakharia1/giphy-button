@@ -10,9 +10,7 @@
 <body>
 <!-- Title for the page -->
 <h1>
-    "Somtimes I'll just start a gif and I don't even know where it's going, I
-    just hope I find it along the way"
-    -Michael Scott (Vidhi Vakharia)
+    <img src="https://images-na.ssl-images-amazon.com/images/I/419fOYZcgjL._SX425_.jpg" height="200px" width="200px">
 </h1>
 
 <!-- Creating the <div> that holds the buttons -->
@@ -55,6 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
 
+    $("button").on("click", function() {
     var person = $(this).attr("data-person"); // this is a reference to ANY button on the page 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=GiQqAxsCupPhVzHbrsvukO5U6TAAADdG";
     
@@ -81,6 +80,8 @@
 
         $("#gifs-here").prepend(gifDiv); // adds the gifDiv to the main Div that holds the ajax request
         }
+
+    });
 
     });
 
