@@ -1,0 +1,22 @@
+h1 {
+    background-color: darkgreen;
+    padding: 10px;
+    margin: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    text-decoration-color: white;
+}
+
+#buttons {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: darkgreen;
+    margin: 5px;
+    padding: 8px;
+    text-align: center;
+    text-decoration-color: white;
+}
+
+body {
+    background-color: dimgray;
+}
+
