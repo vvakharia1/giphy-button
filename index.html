@@ -47,7 +47,7 @@
     </div>
 
 <!-- Creating the <div> to hold gif images -->
-    <div id="gifs-appear-here">
+    <div id="gifs-here">
     </div>
 
 <!-- Creating click action on buttons and AJAX request -->
@@ -72,18 +72,16 @@
         var rating = topics[i].rating; // rating is pulled from the response
         var gifP = $("<p>").text("Rating: " + rating); // creates a p tag that allows the rating to be displayed on the page
 
-        var personImage = $("<img>");
-        personImage.attr("src", topics[i].)
+        var personImage = $("<img>"); // creates a img tag to hold the img pulled from response
+        personImage.attr("src", topics[i].images.fixed_height); // creates attribute to pull image from response
+
+        gifDiv.prepend(gifP); // adds the p tag text to the main gifDiv
+        gifDiv.prepend(personImage); // adds the img to the main gifDiv
+
+        $("#gifs-here").prepend(gifDiv); // adds the gifDiv to the main Div that holds the ajax request
         }
 
     })
-
-
-
-
-
-
-
 
     </script>
     
