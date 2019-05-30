@@ -10,7 +10,7 @@
 <body>
 <!-- Title for the page -->
 <h1>
-    <img src="https://images-na.ssl-images-amazon.com/images/I/419fOYZcgjL._SX425_.jpg" height="200px" width="200px">
+    <img src="https://i.pinimg.com/originals/53/90/7f/53907f287c469f9db37731697f21712c.png" height="200px" width="400px">
 </h1>
 
 <!-- Creating the <div> that holds the buttons -->
@@ -95,8 +95,14 @@
         $("#submit").on("click", function() {
         var input = $("#input-value").val();
         console.log(input);
-        // once the value is inputted the button must be created 
-        // once the button created is clicked = response 
+        // once the value is inputted the button must be created to add to the page 
+        var newButton = $("<button>");
+        // once the button is created you want to add to it the value that the user inputs
+        var addButton = $(newButton).val();
+        console.log(addButton);
+        // add the button to the original div that holds on the buttons
+        
+
         });
 
 
