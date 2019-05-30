@@ -31,7 +31,7 @@
         <button class="character" data-person="Angela Martin">
             Angela Martin
         </button>
-        <button class="character" -person="Toby Flenderson">
+        <button class="character" data-person="Toby Flenderson">
             Toby Flenderson
         </button>
         <button class="character" data-person="Kelly Kapoor">
@@ -61,7 +61,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
 
-    $(".character").on("click", function() {
+    $("#buttons").on("click", ".character",function() { // the button is parent div and it is all encompasing
+    // when adding an event listener 
     var person = $(this).attr("data-person"); // this is a reference to ANY button on the page 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=GiQqAxsCupPhVzHbrsvukO5U6TAAADdG";
     
@@ -82,7 +83,13 @@
 
         var personImage = $("<img>"); // creates a img tag to hold the img pulled from response
         personImage.attr("src", topics[i].images.fixed_height.url); // creates attribute to pull image from response
-
+       
+        // var stillImage = $("<img>");    
+        // stillImage.attr("src", topics[i].images.orginal_still.url)
+        // <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
+        // var personImage = $("<img src="+topics[i].images.original_still.url+ " data-still="+topics[i].images.original_still.url+ " data-animate="+topics[i].images.fixed_height.url+ "data-state='still' class='gif'>")
+        // console.log(personImage)
+        
         gifDiv.prepend(gifP); // adds the p tag text to the main gifDiv
         gifDiv.prepend(personImage); // adds the img to the main gifDiv
 
@@ -97,11 +104,16 @@
         console.log(input);
         // once the value is inputted the button must be created to add to the page 
         var newButton = $("<button>");
+
         // once the button is created you want to add to it the value that the user inputs
-        var addButton = $(newButton).val();
-        console.log(addButton);
+        newButton.text(input)
+
+        newButton.attr({class: 'character', "data-person": input}) // added the attributes from the original
+        // buttons to new button - so that you don't need new click function on it and your click function
+        // above ^ can work across every button you create
+
         // add the button to the original div that holds on the buttons
-        
+        $("#buttons").append(newButton);
 
         });
 
